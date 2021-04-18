@@ -22,6 +22,10 @@ const routes: Routes = [
     loadChildren: () => import('./public/public.module').then(mod => mod.PublicModule)
   },
   {
+    path: 'product',
+    loadChildren: () => import('./product/product.module').then(mod => mod.ProductModule)
+  },
+  {
     path: '',
     pathMatch: 'full',
     redirectTo: '/login'

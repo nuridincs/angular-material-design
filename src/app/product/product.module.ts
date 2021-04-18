@@ -2,28 +2,21 @@ import { MaterialDesign } from './../material/material';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AdminComponent } from './admin/admin.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { ListComponent } from './list/list.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: AdminComponent,
-    children: [
-      {
-        path: 'dashboard',
-        component: DashboardComponent
-      }
-    ]
+    component: ListComponent
   }
-]
+];
 
 @NgModule({
-  declarations: [AdminComponent, DashboardComponent],
+  declarations: [ListComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     MaterialDesign
   ]
 })
-export class AdminModule { }
+export class ProductModule { }
