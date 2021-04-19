@@ -5,24 +5,38 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ApiService {
-  serviceUrl: any = 'http://api.sunhouse.co.id/bookstore/index.php/';
+  serverUrl: any = 'http://api.sunhouse.co.id/bookstore/index.php/';
   constructor(
     public http: HttpClient
   ) { }
 
   get(url): any {
-    return this.http.get(`${this.serviceUrl}${url}`);
+    return this.http.get(`${this.serverUrl}${url}`);
   }
 
   post(url, data): any {
-    return this.http.post(`${this.serviceUrl}${url}`, data);
+    return this.http.post(`${this.serverUrl}${url}`, data);
   }
 
   put(url, data): any {
-    return this.http.put(`${this.serviceUrl}${url}`, data);
+    return this.http.put(`${this.serverUrl}${url}`, data);
   }
 
   delete(url): any {
-    return this.http.delete(`${this.serviceUrl}${url}`);
+    return this.http.delete(`${this.serverUrl}${url}`);
+  }
+
+  register(email, password): any {
+    return this.http.post(`${this.serverUrl}/auth/register`, {
+      email,
+      password
+    });
+  }
+
+  login(email, password): any {
+    return this.http.post(`${this.serverUrl}/auth/login`, {
+      email,
+      password
+    });
   }
 }

@@ -20,13 +20,6 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.title = 'Products';
-    this.book = {
-      title: 'Mortal Kombat',
-      author: 'zzzz',
-      publisher: 'xxxx',
-      year: '2017',
-      price: 70000
-    };
     this.getBooks();
   }
 
