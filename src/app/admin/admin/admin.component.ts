@@ -7,6 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
+  menu = [
+    {
+      name: 'Dashboard',
+      icon: 'dashboard',
+      url: '/admin/dashboard'
+    },
+    {
+      group: 'Menu Group',
+      children: [
+        {
+          name: 'Image Gallery',
+          icon: 'camera_enhance',
+          url: '/admin/gallery'
+        }
+      ]
+    }
+  ];
+
   constructor() { }
 
   ngOnInit(): void {
