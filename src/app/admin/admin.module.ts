@@ -6,6 +6,9 @@ import { AdminComponent } from './admin/admin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { ImageUploaderComponent } from './image-uploader/image-uploader.component';
+import { ProductComponent } from './product/product.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -15,6 +18,10 @@ const routes: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent
+      },
+      {
+        path: 'product',
+        component: ProductComponent
       },
       {
         path: 'gallery',
@@ -30,11 +37,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AdminComponent, DashboardComponent, GalleryComponent, ImageUploaderComponent],
+  declarations: [AdminComponent, DashboardComponent, GalleryComponent, ImageUploaderComponent, ProductComponent, ProductDetailComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    MaterialDesign
+    MaterialDesign,
+    FormsModule
   ]
 })
 export class AdminModule { }

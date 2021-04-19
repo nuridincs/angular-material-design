@@ -8,10 +8,8 @@ import { RegisterComponent } from './auth/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialDesign } from './material/material';
 import { ForgotComponent } from './auth/forgot/forgot.component';
+import { HttpClientModule } from '@angular/common/http';
 
-// Material Design
-// import {MatToolbarModule} from '@angular/material/toolbar';
-// import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,9 +21,8 @@ import { ForgotComponent } from './auth/forgot/forgot.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialDesign
-    // MatToolbarModule,
-    // MatCardModule
+    MaterialDesign,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

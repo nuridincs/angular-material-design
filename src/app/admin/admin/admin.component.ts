@@ -14,6 +14,11 @@ export class AdminComponent implements OnInit {
       url: '/admin/dashboard'
     },
     {
+      name: 'Product',
+      icon: 'camera_enhance',
+      url: '/admin/product'
+    },
+    {
       group: 'Menu Group',
       children: [
         {
