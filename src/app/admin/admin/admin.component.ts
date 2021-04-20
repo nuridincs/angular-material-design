@@ -16,19 +16,19 @@ export class AdminComponent implements OnInit {
     },
     {
       name: 'Product',
-      icon: 'camera_enhance',
+      icon: 'production_quantity_limits',
       url: '/admin/product'
     },
-    {
-      group: 'Menu Group',
-      children: [
-        {
-          name: 'Image Gallery',
-          icon: 'camera_enhance',
-          url: '/admin/gallery'
-        }
-      ]
-    }
+    // {
+    //   group: 'Menu Group',
+    //   children: [
+    //     {
+    //       name: 'Image Gallery',
+    //       icon: 'camera_enhance',
+    //       url: '/admin/gallery'
+    //     }
+    //   ]
+    // }
   ];
 
   constructor(

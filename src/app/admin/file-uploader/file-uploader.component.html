@@ -1,0 +1,15 @@
+<h3 mat-dialog-title>
+  Upload File
+</h3>
+
+<div mat-dialog-content>
+  <div class="uk-flex uk-flex-middle uk-flex-center upload-file" (click)="fileInput.click()">
+    <span>{{ selectedFile ? selectedFile.name : 'Pilih File' }}</span>
+  </div>
+  <input type="file" id="file" (change)="onFileChange($event)" #fileInput style="display: none;">
+</div>
+
+<div mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Batal</button>
+  <button mat-flat-button color="primary" (click)="uploadFile()" [disabled]="loadingUpload">{{ loadingUpload ? 'Mengupload' : 'Upload' }}</button>
+</div>

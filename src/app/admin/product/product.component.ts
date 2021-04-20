@@ -1,3 +1,4 @@
+import { FileUploaderComponent } from './../file-uploader/file-uploader.component';
 import { ApiService } from './../../services/api.service';
 import { ProductDetailComponent } from './../product-detail/product-detail.component';
 import { Component, OnInit } from '@angular/core';
@@ -62,6 +63,22 @@ export class ProductComponent implements OnInit {
         alert('Something wrong');
       });
     }
+  }
+
+  uploadFile(data, idx): void {
+    const dialog = this.dialog.open(FileUploaderComponent, {
+      width: '400px',
+      data
+    });
+    dialog.afterClosed().subscribe(res => {
+      if (res) {
+        if (idx === -1) {
+          this.books.push(data);
+        } else {
+          this.books[idx] = data;
+        }
+      }
+    });
   }
 
 }
