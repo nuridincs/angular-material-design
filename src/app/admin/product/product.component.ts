@@ -25,11 +25,11 @@ export class ProductComponent implements OnInit {
 
   getBooks(): void {
     this.loading = true;
-    this.api.get('books').subscribe(response => {
+    this.api.get('bookswithauth').subscribe(response => {
       this.books = response;
       this.loading = false;
     }, error => {
-      this.loading = true;
+      this.loading = false;
       alert('Something wrong');
     });
   }

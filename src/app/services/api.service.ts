@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -6,24 +6,43 @@ import { Injectable } from '@angular/core';
 })
 export class ApiService {
   serverUrl: any = 'http://api.sunhouse.co.id/bookstore/index.php/';
+  httOptions: any;
   constructor(
     public http: HttpClient
   ) { }
 
   get(url): any {
-    return this.http.get(`${this.serverUrl}${url}`);
+    this.getoken();
+    return this.http.get(`${this.serverUrl}${url}`, this.httOptions);
   }
 
   post(url, data): any {
-    return this.http.post(`${this.serverUrl}${url}`, data);
+    this.getoken();
+    return this.http.post(`${this.serverUrl}${url}`, data, this.httOptions);
   }
 
   put(url, data): any {
-    return this.http.put(`${this.serverUrl}${url}`, data);
+    this.getoken();
+    return this.http.put(`${this.serverUrl}${url}`, data, this.httOptions);
   }
 
   delete(url): any {
-    return this.http.delete(`${this.serverUrl}${url}`);
+    this.getoken();
+    return this.http.delete(`${this.serverUrl}${url}`, this.httOptions);
+  }
+
+  getoken(): void {
+    const tokenKey = localStorage.getItem('appToken');
+
+    if (tokenKey !== null) {
+      const data = JSON.parse(tokenKey);
+      this.httOptions = {
+        headers: new HttpHeaders({
+          'content-type': 'application/json',
+          Authorization: 'Bearer ' + data.token
+        })
+      };
+    }
   }
 
   register(email, password): any {

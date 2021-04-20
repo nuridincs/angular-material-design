@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -10,7 +11,8 @@ export class LoginComponent implements OnInit {
   [x: string]: any;
   user: any = {};
   constructor(
-    public api: ApiService
+    public api: ApiService,
+    public router: Router
   ) { }
 
   ngOnInit(): void {
@@ -18,7 +20,8 @@ export class LoginComponent implements OnInit {
 
   login(): any {
     this.api.login(this.user.email, this.user.password).subscribe(result => {
-      // this.router.navigate(['/admin']);
+      localStorage.setItem('appToken', JSON.stringify(result));
+      this.router.navigate(['/admin']);
     }, error => {
       alert('Login Gagal');
     });
