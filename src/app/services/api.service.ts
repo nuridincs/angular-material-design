@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ApiService {
-  serverUrl: any = 'http://api.sunhouse.co.id/bookstore/index.php/';
+  serverUrl: any = '/api/';
   httOptions: any;
   constructor(
     public http: HttpClient
